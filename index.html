@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Org Chart</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/themeStyle.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body class="body" id="js-body">
+        <button class="addBossButton buttonHidden" onclick="addBossModalSettings();" id="js-bossButton"> <img src="img/addUser.png" alt="UserPicture"/></button>
+        
+        <div id="js-mySimpleModal" class="myModal nods" onclick="outsideClick(this);">
+            <div class="modalContent" id="js-modalContent">
+                <p class="question">Which elements you want to move?</p>
+                <button class="only" onclick="dropNode(eventElem,false)">Only dragged element!</button>
+                <button class="all" onclick="dropNode(eventElem,true)">All Elements!</button>
+            </div>
+        </div>
+        
+        <div class="orgChart" id="js-orgChart"></div>
+        <div id="js-mySimpleModalSettings" class="myModal settingsModal" onclick="outsideSettingsClick(this)">
+            <div class="modalContent" id="js-modalContentSettings">
+                <p id="js-modalTitleSettings" class="modalTitle">SELECT THEME:</p>
+                <select class="themeSelect" onchange="changeTheme(this);" id="js-select">
+                    <option>Original</option>
+                    <option>Quantox</option>
+                    <option>Theme 1</option>
+                    <option>Theme 2</option>
+                </select>
+                <p class="modalTitle">SELECT NODE LOOK:</p>
+                <select class="themeSelect" onchange="changeNodeLook(this);" id="js-selectNode">
+                    <option>Original</option>
+                    <option>Horizontal</option>
+                    <option>Small</option>
+                </select>
+                <button id="js-closeBtnSettings" onclick="closeModalSettings()">Close</button>
+            </div>
+        </div>
+        <p class="settings" onclick="openSettingsModal()" id="js-settings">&#9881;</p>
+        <canvas id="js-canvas" class="canvas"></canvas>
+        <script src="js/nodeForms.js" language="Javascript" type="text/javascript"></script>
+        <script src="js/validation.js" language="Javascript" type="text/javascript"></script>
+        <script src="js/add,Edit Or Delete Nods.js" language="Javascript" type="text/javascript"></script>
+        <script src="js/objects.js" language="Javascript" type="text/javascript"></script> 
+        <script src="js/orgChart.js" language="Javascript" type="text/javascript"></script>
+        <script src="js/modal.js" language="Javascript" type="text/javascript"></script>
+        <script src="js/settings.js" language="Javascript" type="text/javascript"></script>
+        <script src="js/dragabble.js" language="Javascript" type="text/javascript"></script>
+        <script src="js/dragFunctions.js" type="text/javascript"></script>
+    </body>
+</html>

@@ -1,0 +1,440 @@
+/*
+* Variables
+*/
+/*
+* Mixins
+*/
+/*
+* Main Content
+*/
+/*
+* Global Changes
+*/
+html {
+  min-height: 100%;
+}
+.body {
+  height: 100%;
+  text-align: center;
+  margin: 0;
+  background: linear-gradient(to right, #136a8a, #267871);
+  background-size: 1000% 100%;
+  font-family: arial;
+}
+.modalShown > .nods {
+  display: block;
+}
+.modalShownSettings > .settingsModal {
+  display: block;
+}
+.settingAnimation {
+  animation: rotate 0.7s;
+}
+.settingAnimationReverse {
+  animation: rotateReverse 0.7s;
+}
+.addOpacity {
+  opacity: 0.5;
+}
+/*
+* Boss Button
+*/
+.addBossButton {
+  width: 75px;
+  height: 75px;
+  border-radius: 99999px;
+  margin-top: 50px;
+  text-align: center;
+  border: none;
+  box-shadow: 1px 1px black;
+  cursor: pointer;
+  padding: 1px 4px 1px 6px;
+}
+.addBossButton > img {
+  width: 50px;
+  height: 50px;
+}
+.addBossButton:hover {
+  width: 80px;
+  height: 80px;
+}
+.addBossButton:active {
+  box-shadow: none;
+}
+.buttonHidden {
+  display: none;
+}
+/*
+* Canvas
+*/
+.canvas {
+  display: block;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+}
+.canvasHidden {
+  display: none;
+}
+/*
+* Org Chart
+*/
+.orgChart {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 999;
+  margin-top: 50px;
+}
+.dropzone {
+  min-height: 10px;
+  min-width: 10px;
+  display: inline-block;
+}
+.dropzone > .dropzone {
+  margin: 0;
+  float: left;
+}
+.dropzone > .myThumbNaill {
+  box-shadow: 3px 3px 5px 6px #20212329;
+  background-color: #ffe4c4;
+  position: relative;
+  width: 190px;
+  padding: 0 5px;
+  display: inline-block;
+  margin: 10px 10px 10px 10px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+.dropzone > .myThumbNaill > .dragHere {
+  background-color: rgba(0, 0, 255, 0.2);
+  margin: 10px 10px !important;
+  padding: 10px 0;
+  border-radius: 10px;
+  text-align: center;
+}
+.dropzone > .myThumbNaill > hr {
+  border: none;
+}
+.dropzone > .myThumbNaill > .text > hr {
+  border: none;
+}
+.dropzone > .myThumbNaill > .controlButtons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: none;
+  animation: slowShow;
+  animation-duration: 0.6s;
+}
+.dropzone > .myThumbNaill > .controlButtons > div {
+  width: 50px;
+  height: 50px;
+}
+.dropzone > .myThumbNaill > .controlButtons > div > img {
+  width: 30px;
+  height: 30px;
+  padding-top: 10px;
+}
+.dropzone > .myThumbNaill > .controlButtons > div > .icon_1 {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+}
+.dropzone > .myThumbNaill > .controlButtons > div > .icon_2 {
+  margin-bottom: 10px;
+}
+.dropzone > .myThumbNaill > .controlButtons > .trash,
+.dropzone > .myThumbNaill > .controlButtons > .pen,
+.dropzone > .myThumbNaill > .controlButtons > .plus {
+  display: inline-block;
+  margin: 4px 14px;
+  font-size: 25px;
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 99999px;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  padding: 1px;
+}
+.dropzone > .myThumbNaill > .spaceForPicture {
+  overflow: auto;
+}
+.dropzone > .myThumbNaill > .spaceForPicture > img {
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  margin: 10px 10px 0 0;
+}
+.dropzone .addDashBorder {
+  border-image-outset: 5px;
+  border-image-repeat: repeat;
+  border-image-source: url("http://matthewjamestaylor.com/blog/selection-big.gif") !important;
+  border-image-slice: 6;
+  border-image-width: 1px;
+}
+.dropzone > .myThumbNaill:first-of-type {
+  display: block;
+  margin: auto;
+  margin-bottom: 50px;
+}
+.dropzone > .myThumbNaill:first-of-type > .text > p {
+  margin: 0 0 5px 0;
+  font-size: 20px;
+}
+.dropzone > .myThumbNaill:only-child {
+  margin: 30px;
+  margin-top: 0;
+}
+.myThumbNaill:hover > .controlButtons {
+  display: block;
+}
+.trash:hover,
+.pen:hover,
+.plus:hover {
+  background-color: #00bfff;
+}
+@keyframes slowShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacitiy: 1;
+  }
+}
+.emptyDropzone {
+  display: none;
+}
+/*
+* Modal
+*/
+.myModal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.myModal > .modalContent {
+  box-shadow: 3px 3px 5px 6px #20212329;
+  background-color: #8bafc8;
+  border-radius: 10px;
+  margin: 50px auto 0 auto;
+  max-width: 100%;
+  width: 450px;
+  max-height: 100%;
+  animation-name: modalopen;
+  animation-duration: 1s;
+  overflow: auto;
+  position: relative;
+}
+.myModal > .modalContent > .close {
+  float: right;
+  font-size: 30px;
+  cursor: pointer;
+  margin: 8px 20px 3px 0;
+  opacity: 0.5;
+}
+.myModal > .modalContent > .close:hover {
+  opacity: 1;
+}
+.myModal > .modalContent > .choseTitle {
+  display: inline-block;
+  margin: 15px 0 5px 30px;
+}
+.myModal > .modalContent > .modalTitle {
+  font-weight: bold;
+  font-size: 20px;
+}
+.myModal > .modalContent > .theImageContents {
+  float: left;
+  width: 80px;
+  height: 250px;
+}
+.myModal > .modalContent > .theImageContents > img {
+  width: 80px;
+  height: 80px;
+  margin-top: 65px;
+  margin-left: 40px;
+}
+.myModal > .modalContent > .theImageContents > .choseFile {
+  display: none;
+}
+.myModal > .modalContent > .theImageContents > .choseFileButton {
+  border-color: #0c7dff;
+  background-color: #0c7dff;
+  padding: 3px 10px;
+  border-radius: 5px;
+  color: white;
+  width: 134px;
+  margin: 77px 0 0 16px;
+}
+.myModal > .modalContent > .theImageContents > .choseFileButton > p {
+  display: inline-block;
+  margin: 0;
+  margin-top: 3px;
+  margin-left: 6px;
+}
+.myModal > .modalContent > .theImageContents > .choseFileButton > img {
+  width: 20px;
+  float: left;
+}
+.myModal > .modalContent .error {
+  margin: 0;
+  height: 15px;
+  color: red;
+}
+.myModal > .modalContent > input::placeholder {
+  font-style: italic;
+  font-weight: bold;
+  font-family: serif;
+  font-size: 15px;
+}
+.myModal > .modalContent > input {
+  display: block;
+  margin: auto;
+  margin-top: 8px;
+  padding-left: 20px;
+  box-shadow: inset 2px 2px 4px #20212329;
+  height: 25px;
+  border-radius: 8px;
+  border: none;
+}
+.myModal > .modalContent > button:first-of-type {
+  border-color: #0c7dff;
+  background-color: #0c7dff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+}
+.myModal > .modalContent > button:last-of-type {
+  border-color: #0c7dff;
+  background-color: #0c7dff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+  color: white;
+}
+.myModal > .modalContent .choseFile {
+  float: left;
+  margin-left: 15px;
+  padding: 5px 10px 0 10px;
+}
+.myModal > .modalContent > button {
+  margin: 20px auto;
+}
+.myModal > .modalContent .closeBtn {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+  color: grey;
+  margin-right: 20px;
+}
+.myModal > .modalContent .closeBtn:hover,
+.myModal > .modalContent .closeBtn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.myModal > .modalContent > .themeSelect {
+  display: block;
+  margin: auto;
+}
+.myModal > .modalContent > .only:first-of-type {
+  float: left;
+  width: 50%;
+  padding: 15px;
+  bottom: 0;
+  margin: 0;
+  border-radius: 0;
+}
+.myModal > .modalContent > .all:last-of-type {
+  float: right;
+  width: 50%;
+  padding: 15px;
+  bottom: 0;
+  margin: 0;
+  border-radius: 0;
+}
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.question .modalContent {
+  top: 40%;
+  margin-top: 0;
+}
+.dragHereColor > .myThumbNaill > .dragHere {
+  background: #0000ff;
+}
+/*
+* Settings
+*/
+.settings {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  position: fixed;
+  right: 50px;
+  top: 0px;
+  font-size: 40px;
+  cursor: pointer;
+  opacity: 0.5;
+  height: 57.5px;
+}
+.themeSelect {
+  padding: 5px 15px;
+  border-radius: 4px;
+  border: none;
+}
+.settings:hover {
+  opacity: 1;
+  transform: rotate;
+}
+#closeBtnSettings {
+  margin: 20px 0 20px 0;
+}
+.bossDeleteMessage {
+  color: red;
+  opacity: 0;
+  font-size: 18px;
+  display: inline-block;
+  float: left;
+  top: 0;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotateReverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.dropzone > .myThumbNaill > .fullBlueColor {
+  background-color: #0000ff;
+}
+/*# sourceMappingURL=style.css.map */

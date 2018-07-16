@@ -1,0 +1,173 @@
+/*
+* Theme One
+*/
+.themeOne{
+    background:none;
+    background-color: #a76d40;
+    >.myModal{
+        .modalContent{
+            background-color: #9b8b5c;
+            >button{
+                background-color: #8dac13;
+                border-color: #8dac13;
+            }
+            .theImageContents>.choseFileButton{
+                background-color: #8dac13;
+                border-color: #8dac13;
+            }
+        }
+    }
+    >.orgChart>div>div{
+        .myThumbNaill{
+            >.controlButtons{
+                >div:hover{
+                    background-color: #b2a726;
+                }
+            }
+            >.text>p{font-family: sans-serif;}
+
+        }
+    }
+}
+
+/*
+* Theme Two
+*/
+.themeTwo{
+    background: #44A08D;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #093637, #44A08D);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(#093637, #44A08D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: 120% 120%;
+    >.myModal{
+        .modalContent{
+            background: #44A08D; 
+            >button{
+                background-color: #6d8412;
+                border-color: #6d8412;
+            }
+            >.theImageContents>.choseFileButton{
+                background-color: #6d8412;
+                border-color: #6d8412;
+            }
+        }
+    }
+    >.orgChart>div>div{
+        .myThumbNaill{
+            >.controlButtons{
+                >div:hover{
+                    background-color: #429b89;
+                }
+                >.text>p{font-family: serif;}
+
+            }
+        }
+    }
+}
+
+/*
+* Quantox Node Look
+*/
+.quantox{
+    background: none;
+    background-color: none;
+    >.orgChart>div>div>{ 
+        .myThumbNaill{
+            background-color: #96ca3a;
+            >.controlButtons{
+                >div:hover{
+                    background-color:#6c6d70;
+                }
+                >.text>p{font-family: serif;}
+            }
+        }
+        .dropzone>.myThumbNaill{ background-color: #96ca3a;}                                             
+    }
+    >.myModal{
+        .modalContent{
+            background-color: #96ca3a;
+        }
+    }
+}
+
+/*
+* Horizontal Node Look
+*/
+.horizontal>.orgChart>div>div>{
+    >.myThumbNaill{
+        overflow: auto;
+        width: 380px;
+        >.spaceForPicture{
+            display: inline-block;
+            margin-top: 0px;
+            float: left;
+            margin-left: 36px;
+            margin-top: 14px;
+            >img{margin:0}
+        }
+        >.text{
+            display: inline-block;
+            margin-bottom: 3px;
+            float: left;
+            margin-left: 26px;
+            margin-top: 14px;
+        }
+        .dragHere{
+            float: left;
+            width: 95%;
+        }
+        >.controlButtons{
+            >.trash,>.pen,>.plus{
+                float: right; 
+            }
+            >.pen{margin-right: 73px;}
+        }
+    }
+
+    .dropzone{
+        .myThumbNaill{
+            overflow: auto;
+            width: 380px;
+            >.spaceForPicture{
+                display: inline-block;
+                margin-top: 0px;
+                float: left;
+                margin-left: 36px;
+                margin-top: 14px;
+                >img{margin:0}
+            }
+            >.text{
+                display: inline-block;
+                margin-bottom: 3px;
+                float: left;
+                margin-left: 26px;
+                margin-top: 14px;
+            }
+            .dragHere{
+                float: left;
+                width: 95%;
+            }
+            >.controlButtons{
+                >.trash,>.pen,>.plus{
+                    float: right
+                }
+                >.pen{margin-right: 73px}
+            }
+        } 
+    }
+}
+
+/*
+*Small Node Look
+*/
+.small{
+    >.orgChart>div>div{
+        .myThumbNaill{
+            width: 165px;
+        }
+        .dropzone > .myThumbNaill:only-child {
+            margin: 15px;
+            margin-top: 0;
+        }
+    }
+}
+
