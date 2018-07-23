@@ -1,5 +1,6 @@
 /* global edit, addBossFlag */
 
+// Input validation;
 function validateInput() {
     var nameOk = true;
     var surnameOk = true;
@@ -10,7 +11,6 @@ function validateInput() {
     var nameError = document.getElementById("js-nameError");
     var surnameError = document.getElementById("js-surnameError");
     var jobError = document.getElementById("js-jobError");
-
     cleanErrorMessages();
 
     // Error message for name input

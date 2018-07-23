@@ -4,6 +4,7 @@ var clr = false;
 var dragged;
 var eventElem;
 var array = [];
+var dragGhost;
 
 /* events fired on the draggable target */
 document.addEventListener("drag", function (event) {
@@ -11,7 +12,8 @@ document.addEventListener("drag", function (event) {
     getNodeTree(dragged);
     for (var i = 0; i < objects.length; i++) {
         var id = "id_" + objects[i].id + "";
-        if (dragged.dataset.id != objects[i].id && !includes(array, objects[i].id) && !hasClass(document.getElementById(id), "addDashBorder") && dragged.dataset.parentid != objects[i].id) {
+        if (dragged.dataset.id != objects[i].id  && !hasClass(document.getElementById(id), "addDashBorder") && dragged.dataset.parentid != objects[i].id) {
+            console.log("dawdaw");
             addClass(document.getElementById(id), "addDashBorder");
             drawStuff();
         }
@@ -20,9 +22,21 @@ document.addEventListener("drag", function (event) {
 
 //event listener for drag start;
 document.addEventListener("dragstart", function (event) {
-    event.dataTransfer.setData('application/node type', this);
-    dragged = event.target;
-    addClass(event.target, "addOpacity");
+    if (event.target.dataset.id && event.target.dataset.id != 0) {
+       // dragGhost = event.target.cloneNode(true);
+      //  var nodeToRemove = dragGhost.childNodes[2]
+       // dragGhost.style.height = event.target.childNodes[1].getBoundingClientRect().height + "px";
+       // dragGhost.style.overflow = "hidden";
+       // dragGhost.style.position = "absolute";
+      //  dragGhost.style.top = "-9999px";
+      //  document.body.appendChild(dragGhost);
+       // event.dataTransfer.setDragImage(dragGhost, 30, 10);
+        event.dataTransfer.setData('application/node type', this);
+        dragged = event.target;
+        addClass(event.target.childNodes[1], "addOpacity");
+    } else {
+        event.preventDefault();
+    }
 }, true);
 
 //event listener for drag end;
@@ -34,13 +48,13 @@ document.addEventListener("dragend", function (event) {
             drawStuff();
         }
     }
-    removesClass(event.target, "addOpacity");
+    removesClass(event.target.childNodes[1], "addOpacity");
 }, false);
 
 // event listener for drag over, set background of "drop zone" element;
 document.addEventListener("dragover", function (event) {
     event.preventDefault();
-    if (event.target.className == "dragHere" && dragOrNot(event.target) && dragged.dataset.parentid != event.target.parentNode.parentNode.dataset.id) {
+    if (event.target.className == "dragHere"  && dragged.dataset.parentid != event.target.parentNode.parentNode.dataset.id) {
         addClass(event.target.parentNode.parentNode, "dragHereColor");
     }
 }, false);
@@ -63,11 +77,14 @@ document.addEventListener("drop", function (event) {
             document.getElementById("js-modalContent").innerHTML = modalContent2;
             addClass(document.getElementById("js-body"), "modalShown");
             removesClass(event.target.parentNode.parentNode, "dragHereColor");
+        } else if (event.target.className == "dragHere" && dragged.childNodes[3] && !dragOrNot(event.target)) {
+            switchPlaces(dragged, event.target);
         } else {
             dropNode(event, false);
         }
     } else {
         removesClass(event.target.parentNode.parentNode, "dragHereColor");
     }
+
 }, false);
 

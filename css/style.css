@@ -171,7 +171,7 @@ html {
   width: 80px;
   height: 80px;
   display: inline-block;
-  margin: 10px 10px 0 0;
+  margin: 10px 0 0 0;
 }
 .dropzone .addDashBorder {
   border-image-outset: 5px;
@@ -188,6 +188,9 @@ html {
 .dropzone > .myThumbNaill:first-of-type > .text > p {
   margin: 0 0 5px 0;
   font-size: 20px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .dropzone > .myThumbNaill:only-child {
   margin: 30px;
@@ -279,6 +282,7 @@ html {
   color: white;
   width: 134px;
   margin: 77px 0 0 16px;
+  cursor: pointer;
 }
 .myModal > .modalContent > .theImageContents > .choseFileButton > p {
   display: inline-block;
@@ -317,6 +321,7 @@ html {
   padding: 5px 10px;
   border-radius: 5px;
   color: white;
+  cursor: pointer;
 }
 .myModal > .modalContent > button:last-of-type {
   border-color: #0c7dff;
@@ -325,6 +330,7 @@ html {
   border-radius: 5px;
   margin-left: 10px;
   color: white;
+  cursor: pointer;
 }
 .myModal > .modalContent .choseFile {
   float: left;

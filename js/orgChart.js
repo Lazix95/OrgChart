@@ -30,8 +30,12 @@ function resizeCanvas() {
         setWidthOfOrgChart();
         setScrollbarPosition();
         fillArrayData();
-        drawStuff();
     }
+    drawStuff();
+    setTimeout(function (){
+         width = canvas.width = canvas.width = document.getElementById("js-orgChart").getBoundingClientRect().width;
+        drawStuff();
+    }, 100);
 }
 
 // redraw canvas on scroll;
@@ -48,15 +52,21 @@ function drawStuff() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     if (quantoxFlag) {
         context.globalAlpha = 0.7;
-        var x = ((getWidth()) / 2 - (getWidth() - 150 ) / 2);
-        y = (canvas.height / 2 - (getWidth()*0.28 ) / 2);
-        context.drawImage(imageObj, x, y, (getWidth() - 150)  , (getWidth() - 150)*0.28  );
+        var x = ((getWidth()) / 2 - (getWidth() ) / 2.5);
+        var y = (canvas.height / 10);
+        context.drawImage(imageObj, x, y, (getWidth() / 4.5), (getWidth() / 4.5) * 0.28);
+        context.globalAlpha = 1;
+        
+         context.globalAlpha = 0.7;
+        var x = (getWidth()/1.44);
+        var y = (canvas.height / 10);
+        context.drawImage(imageObj, x, y, (getWidth() / 4.5), (getWidth() / 4.5) * 0.28);
         context.globalAlpha = 1;
     }
     var i;
     if (objects) {
         for (i = 0; i < objects.length; i++) {
-            
+
             context.strokeStyle = colorOfLines;
             context.beginPath();
             context.moveTo(objects[i].x + objects[i].width / 2, objects[i].y + objects[i].height + 5); // start 5px below every node;
@@ -74,11 +84,12 @@ function drawStuff() {
     }
 }
 
+// Get browser width;
 function getWidth() {
-  return Math.max(
-    document.documentElement.offsetWidth,
-    document.documentElement.clientWidth
-  );
+    return Math.max(
+            document.documentElement.offsetWidth,
+            document.documentElement.clientWidth
+            );
 }
 
 

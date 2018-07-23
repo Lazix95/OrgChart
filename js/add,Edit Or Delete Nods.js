@@ -1,5 +1,6 @@
 /* global objects, parentElem, modal */
 
+//Sing in new node
 function enterNewPerson() {
     var name = document.getElementById("js-name").value;
     var surname = document.getElementById("js-surname").value;
@@ -18,7 +19,7 @@ function enterNewPerson() {
     closeModal();
 }
 
-// call modal for edit node
+// call modal for edit node;
 function editModalSettings(elem) {
     document.getElementById("js-modalContent").innerHTML = modalContent;
     edit = true;
@@ -37,7 +38,7 @@ function editModalSettings(elem) {
 
 }
 
-// save edited settings 
+// save edited settings;
 function editPerson() {
     var name = document.getElementById("js-name").value;
     var surname = document.getElementById("js-surname").value;
@@ -55,7 +56,7 @@ function editPerson() {
     closeModal();
 }
 
-//call modal for addeding new boss
+//call modal for addeding new boss;
 function addBossModalSettings() {
     document.getElementById("js-modalContent").innerHTML = modalContent;
     addBossFlag = true;
@@ -64,7 +65,7 @@ function addBossModalSettings() {
 
 }
 
-//saves new bos
+//saves new bos;
 function addBoss() {
     var name = document.getElementById("js-name").value;
     var surname = document.getElementById("js-surname").value;
@@ -86,20 +87,20 @@ function addBoss() {
     closeModal();
 }
 
-// uploads picture
+// uploads picture;
 var openFile = function (event) {
     var input = event.target;
     var reader = new FileReader();
     reader.onload = function () {
         TheFileContents = reader.result;
         document.getElementById("js-TheImageContents").innerHTML = '<img id="js-myCustomImage" width="200" src="' + TheFileContents + '" />\n\
-                     <input type="file" accept="images/*" onchange="openFile(event);" class="choseFile">\n\
-                        <button class="choseFileButton" onclick="clickChoseFile();">Chose File</button>';
+                     <input type="file" accept="images/*" onchange="openFile(event);" class="choseFile" id="js-choseFile">\n\
+    <button class="choseFileButton" onclick="clickChoseFile();"><img src="img/upload.png" alt="upload"/> <p>Chose Picture</p></button>'
     };
     reader.readAsDataURL(input.files[0]);
 };
 
-// delete node
+// delete node;
 function deletePerson(elem) {
     var deletedId, deletedParentId;
     if (elem.dataset.parentid == "null") {
@@ -123,7 +124,7 @@ function deletePerson(elem) {
     drawStuff();
 }
 
-// set of functions for reinitialization
+// set of functions for reinitialization;
 function enterData() {
     saveToLocalStorge();
     fillData();
@@ -134,7 +135,7 @@ function enterData() {
     setScrollbarPosition();
 }
 
-//adds class "emptyDropzone" for empty dropzones
+//adds class "emptyDropzone" for empty dropzones;
 function findBossDropzone() {
     temp = document.getElementsByClassName("js-findObj");
     for (var i = 0; i < temp.length; i++) {

@@ -6,7 +6,7 @@ function dragOrNot(elem) {
     if (temp.parentNode.parentNode.id != 0) {
         array = [];
         getNodeTree(dragged);
-        if (includes(array,temp.parentNode.parentNode.id) === false) {
+        if (includes(array, temp.parentNode.parentNode.id) === false) {
             return true;
         } else {
             return false;
@@ -22,7 +22,7 @@ function getNodeTree(node) {
         var children = [];
         for (var j = 0; j < node.childNodes.length; j++) {
             children.push(getNodeTree(node.childNodes[j]));
-            if (node.dataset.id && node.dataset.id != dragged.dataset.id && includes(array,node.dataset.id) === false) {
+            if (node.dataset.id && node.dataset.id != dragged.dataset.id && includes(array, node.dataset.id) === false) {
                 array.push(node.dataset.id);
             }
         }
@@ -78,11 +78,33 @@ function dropNode(event, dropFlag) {
 }
 
 // check if array includes number;
-function includes(myArray,numb){
-    for(var i = 0;i<myArray.length;i++){
-       if (myArray[i] == numb){
+function includes(myArray, numb) {
+    for (var i = 0; i < myArray.length; i++) {
+        if (myArray[i] == numb) {
             return true;
-       }
+        }
     }
     return false;
+}
+
+// Switch nods;
+function switchPlaces(dragged, target) {
+    var k, j;
+    var draggedParentID = dragged.dataset.parentid;
+    var draggedID = dragged.dataset.id;
+    var targetID = target.parentNode.parentNode.dataset.id;
+    var targetParentID = target.parentNode.parentNode.dataset.parentid;
+    for (var i = 0; i < objects.length; i++) {
+        if (objects[i].id == dragged.dataset.id) {
+            k = i;
+        }
+        if (objects[i].id == target.parentNode.parentNode.dataset.id) {
+            j = i;
+        }
+    }
+    objects[j].parentID = draggedParentID;
+    objects[j].id = draggedID;
+    objects[k].parentID = targetParentID;
+    objects[k].id = targetID;
+    enterData();
 }

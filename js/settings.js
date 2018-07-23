@@ -48,9 +48,7 @@ function setTheme(ti) {
         }
         addClass(body, "themeOne");
         colorOfLines = "#000000";
-        if (objects) {
-            drawStuff();
-        }
+        drawStuff();
     } else if (ti === "TH2") {
         selectThemeValue = "themeTwo";
         if (selectValueNode) {
@@ -60,9 +58,7 @@ function setTheme(ti) {
         }
         addClass(body, "themeTwo");
         colorOfLines = "aqua";
-        if (objects) {
-            drawStuff();
-        }
+        drawStuff();
     } else if (ti === "default") {
         selectThemeValue = "";
         if (selectValueNode) {
@@ -71,9 +67,7 @@ function setTheme(ti) {
             setClass(body, "body");
         }
         colorOfLines = "#8b0000";
-        if (objects) {
-            drawStuff();
-        }
+        drawStuff();
     } else if (ti === "quantox") {
         selectThemeValue = "quantox";
         if (selectValueNode) {
@@ -84,11 +78,10 @@ function setTheme(ti) {
         addClass(body, "quantox")
         quantoxFlag = true;
         colorOfLines = "aqua";
-        if (objects) {
-            drawStuff();
-        }
+        drawStuff();
     }
 }
+
 
 // change node look;
 function changeNodeLook(e) {
@@ -145,6 +138,8 @@ function loadTheme() {
         selectValue = localStorage.getItem("selectValue");
         document.getElementById("js-select").value = selectValue;
         setTheme(themeIndicator);
+    }else{
+        setTheme("quantox");
     }
     if (nodeLookIndicator) {
         selectValueNode = localStorage.getItem("selectValueNode");
