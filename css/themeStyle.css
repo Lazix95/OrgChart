@@ -89,6 +89,11 @@
   background-color: #96ca3a;
   border-color: #96ca3a;
 }
+.quantox > .myModal .modalContent > .themeSelect {
+  border-bottom: 1px solid #dcdcdc;
+  border-radius: unset;
+  padding: 5px 26px;
+}
 /*
 * Horizontal Node Look
 */
