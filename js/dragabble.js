@@ -54,7 +54,6 @@ document.addEventListener("dragover", function (event) {
     }
 }, false);
 
-
 // Reset background of drag zone
 document.addEventListener("dragleave", function (event) {
     if (event.target.className == "dragHere") {

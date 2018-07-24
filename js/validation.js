@@ -26,7 +26,7 @@ function validateInput() {
         name.value = toUpperCase(name.value);
     }
 
-    //Error message for surname input
+    // Error message for surname input
     if (surname.value == "") {
         addClass(job,"inputError");
         surnameError.innerHTML = "Surname is required!";
@@ -38,7 +38,7 @@ function validateInput() {
         surname.value = toUpperCase(surname.value);
     }
 
-    //Error message for job input
+    // Error message for job input
     if (job.value == "") {
         jobError.innerHTML = "Job is required!";
         jobOK = false;
@@ -72,7 +72,7 @@ function cleanErrorMessages() {
     var jobError = document.getElementById("js-jobError").innerHTML = "";
 }
 
-// Upper case first character;
+// Upper case first character
 function toUpperCase(str) {
     var temp = str.slice(1);
     var temp2 = str.charAt(0).toUpperCase();

@@ -68,7 +68,6 @@ function outsideSettingsClick(e) {
     if (e.target === document.getElementById("js-mySimpleModalSettings")) {
         closeModalSettings();
     }
-
 }
 
 // Settings modal animation listener
@@ -84,7 +83,6 @@ function startAnimation() {
     }else{
         addClass( document.getElementById("js-settings"),"settingAnimation");
     }
-    
 }
 
 // Animation at modal close
