@@ -1,4 +1,6 @@
-/* global edit, addBossFlag */
+/*
+ *  Global edit, addBossFlag 
+*/
 
 // Input validation;
 function validateInput() {
@@ -47,34 +49,32 @@ function validateInput() {
         job.value = toUpperCase(job.value);
     }
 
-    // if everything is ok, edit and addBoss flags are "false", add new person;
+    // If everything is ok, edit and addBoss flags are "false", add new person
     if (nameOk && surnameOk && jobOK && !edit && !addBossFlag) {
         enterNewPerson();
     }
 
-    // if everything is ok, edit flag is "true" and addBoss flag is "false", save changes;
+    // If everything is ok, edit flag is "true" and addBoss flag is "false", save changes
     if (nameOk && surnameOk && jobOK && edit && !addBossFlag) {
         editPerson();
     }
 
-    // if everything is ok, edit flag "false" and addBoss flag "true", add new Boss;
+    // If everything is ok, edit flag "false" and addBoss flag "true", add new Boss
     if (nameOk && surnameOk && jobOK && !edit && addBossFlag) {
         addBoss();
     }
 }
 
-//clean error messages
+// Clean error messages
 function cleanErrorMessages() {
     var nameError = document.getElementById("js-nameError").innerHTML = "";
     var surnameError = document.getElementById("js-surnameError").innerHTML = "";
     var jobError = document.getElementById("js-jobError").innerHTML = "";
 }
 
-// upper case first character;
+// Upper case first character;
 function toUpperCase(str) {
     var temp = str.slice(1);
     var temp2 = str.charAt(0).toUpperCase();
     return temp2 + temp;
-
 }
-

@@ -1,4 +1,6 @@
-/* global objects */
+/*
+ * Global objects
+*/
 
 var colorOfLines = "#8b0000";
 var themeIndicatorm;
@@ -8,10 +10,9 @@ var selectValueNode;
 var selectThemeValue;
 var body = document.getElementById("js-body");
 
-//change theme;
+// Change theme
 function changeTheme(e) {
     selectValue = e.value;
-
     if (e.value === "Theme 1") {
         themeIndicator = "TH1";
         localStorage.setItem("themeIndicator", themeIndicator);
@@ -36,7 +37,7 @@ function changeTheme(e) {
     }
 }
 
-//set theme changes;
+// Set theme changes
 function setTheme(ti) {
     quantoxFlag = false;
     if (ti === "TH1") {
@@ -82,8 +83,7 @@ function setTheme(ti) {
     }
 }
 
-
-// change node look;
+// Change node look
 function changeNodeLook(e) {
     selectValueNode = e.value;
     if (e.value === "Horizontal") {
@@ -105,7 +105,7 @@ function changeNodeLook(e) {
     }
 }
 
-// set node look changes;
+// Set node look changes
 function setNodeLook(ti) {
     if (ti === "horizontal") {
         setClass(body, "body " + selectThemeValue + "");
@@ -130,7 +130,7 @@ function setNodeLook(ti) {
     }
 }
 
-// load theme and node look;
+// Load theme and node look
 function loadTheme() {
     themeIndicator = localStorage.getItem("themeIndicator");
     nodeLookIndicator = localStorage.getItem("nodeLookIndicator");
@@ -147,8 +147,3 @@ function loadTheme() {
         setNodeLook(nodeLookIndicator);
     }
 }
-
-
-
-
-

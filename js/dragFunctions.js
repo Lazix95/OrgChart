@@ -1,6 +1,8 @@
-/* global objects, dragged */
+/* 
+ * Global objects, dragged 
+ */
 
-//returns answer if node is child of "dragged" node
+// Returns answer if node is child of "dragged" node
 function dragOrNot(elem) {
     var temp = elem;
     if (temp.parentNode.parentNode.id != 0) {
@@ -16,7 +18,7 @@ function dragOrNot(elem) {
     }
 }
 
-// returns array of childs of "dragged" node;
+// Returns array of childs of "dragged" node
 function getNodeTree(node) {
     if (node.hasChildNodes()) {
         var children = [];
@@ -36,7 +38,7 @@ function getNodeTree(node) {
     return false;
 }
 
-// remove elements without "dropzone" class;
+// Remove elements without "dropzone" class
 function filterChilds(elem) {
     var filteredChilds = [];
     elem = elem.childNodes;
@@ -48,7 +50,7 @@ function filterChilds(elem) {
     return filteredChilds;
 }
 
-// drop node into dropzone;
+// Drop node into dropzone
 function dropNode(event, dropFlag) {
     if (event.target.className == "" && null && dragOrNot(event.target)) {
         event.target.style.background = "";
@@ -77,7 +79,7 @@ function dropNode(event, dropFlag) {
     }
 }
 
-// check if array includes number;
+// Check if array includes number
 function includes(myArray, numb) {
     for (var i = 0; i < myArray.length; i++) {
         if (myArray[i] == numb) {
@@ -87,7 +89,7 @@ function includes(myArray, numb) {
     return false;
 }
 
-// Switch nods;
+// Switch nods
 function switchPlaces(dragged, target) {
     var k, j;
     var draggedParentID = dragged.dataset.parentid;

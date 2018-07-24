@@ -1,6 +1,8 @@
-/* global strSelect */
+/*
+ * Global strSelect
+*/
 
-//Global variables;
+// Global variables
 var marginTopOfEveryLevel = 50;
 var sideMargin = 30;
 var heightOfElements = 200;
@@ -12,7 +14,7 @@ var strSelect = 1;
 var str;
 var str2;
 
-// This function create nods and fill them with data;
+// This function create nods and fill them with data
 function fillData() {
     if (objects) {
         var parser = new DOMParser();
@@ -44,10 +46,9 @@ function createHierarchy() {
     }
 }
 
-// Get Height,width, x and y of every node;
+// Get Height,width, x and y of every node
 function fillArrayData() {
     if (objects) {
-
         for (var i = 0; i < objects.length; i++) {
             var elem = document.getElementById('id_' + objects[i].id + '').getBoundingClientRect();
             if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)))
@@ -62,19 +63,18 @@ function fillArrayData() {
                 objects[i].width = elem.width;
                 objects[i].height = elem.height;
             }
-
         }
     }
 }
 
-//Save elements to local storge;
+// Save elements to local storge
 function saveToLocalStorge() {
     var dataToSave = JSON.stringify(objects);
     localStorage.setItem('objects', dataToSave);
     localStorage.setItem("minID", minID);
 }
 
-// Load elements from local storge;
+// Load elements from local storge
 function loadFromLocalStorge() {
     var dataToLoad = localStorage.getItem("objects");
     minID = parseInt(localStorage.getItem("minID"));
@@ -82,7 +82,7 @@ function loadFromLocalStorge() {
     objects = dataToLoad;
 }
 
-//Load elements on start, check if Boss exist in local storge;
+// Load elements on start, check if Boss exist in local storge
 function loadOnStart() {
     loadFromLocalStorge();
     if (objects == null) {
@@ -97,7 +97,7 @@ function loadOnStart() {
     }
 }
 
-// Get width of Bosses children;
+// Get width of Bosses children
 function setWidthOfOrgChart() {
     var windowWidth = getWidth() -100;
     if (objects && document.getElementById("id_0")) {
@@ -121,16 +121,15 @@ function setWidthOfOrgChart() {
     }
 }
 
-// sets horizontal sctoll bar at middle
+// Sets horizontal sctoll bar at middle
 function setScrollbarPosition() {
     var element = document.getElementById("js-body");
     var maxScrollLeft = element.scrollWidth - element.clientWidth;
     maxScrollLeft = maxScrollLeft / 2;
     window.scrollTo(maxScrollLeft, window.pageYOffset);
-
 }
 
-// list of function to start on load;
+// List of function to start on load
 function start() {
     resizeCanvas();
     loadOnStart();
@@ -139,7 +138,7 @@ function start() {
     drawStuff();
 }
 
-// add cass
+// Add cass
 function addClass(elem, name) {
     if (!hasClass(elem, name)) {
         var classString = elem.getAttribute("class");
@@ -148,7 +147,7 @@ function addClass(elem, name) {
     }
 }
 
-// remove class
+// Remove class
 function removesClass(elem, name) {
     var classString = elem.getAttribute("class");
     classString = classString.replace(name, "");
@@ -156,25 +155,24 @@ function removesClass(elem, name) {
     elem.setAttribute("class", classString);
 }
 
-// remove one and add another class
+// Remove one and add another class
 function exchangeClass(elem, class1, class2) {
     var classString = elem.getAttribute("class");
     classString = classString.replace(class1, class2);
     elem.setAttribute("class", classString);
 }
 
-// set class
+// Set class
 function setClass(elem, name) {
     elem.setAttribute("class", name);
 }
 
-// check if element contain class
+// Check if element contain class
 function hasClass(element, className) {
     return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
 }
 
-// start on page load;
+// Start on page load
 window.onload = function () {
     start();
 };
-

@@ -1,12 +1,15 @@
 
-/* global objects, modalContent2 */
+/*
+ *  Global objects, modalContent2 
+ */
+
 var clr = false;
 var dragged;
 var eventElem;
 var array = [];
 var dragGhost;
 
-/* events fired on the draggable target */
+// Events fired on the draggable target 
 document.addEventListener("drag", function (event) {
     array = [];
     getNodeTree(dragged);
@@ -20,17 +23,9 @@ document.addEventListener("drag", function (event) {
     }
 }, false);
 
-//event listener for drag start;
+// Event listener for drag start
 document.addEventListener("dragstart", function (event) {
     if (event.target.dataset.id && event.target.dataset.id != 0) {
-       // dragGhost = event.target.cloneNode(true);
-      //  var nodeToRemove = dragGhost.childNodes[2]
-       // dragGhost.style.height = event.target.childNodes[1].getBoundingClientRect().height + "px";
-       // dragGhost.style.overflow = "hidden";
-       // dragGhost.style.position = "absolute";
-      //  dragGhost.style.top = "-9999px";
-      //  document.body.appendChild(dragGhost);
-       // event.dataTransfer.setDragImage(dragGhost, 30, 10);
         event.dataTransfer.setData('application/node type', this);
         dragged = event.target;
         addClass(event.target.childNodes[1], "addOpacity");
@@ -39,7 +34,7 @@ document.addEventListener("dragstart", function (event) {
     }
 }, true);
 
-//event listener for drag end;
+// Event listener for drag end
 document.addEventListener("dragend", function (event) {
     for (var i = 0; i < objects.length; i++) {
         var id = "id_" + objects[i].id + "";
@@ -51,7 +46,7 @@ document.addEventListener("dragend", function (event) {
     removesClass(event.target.childNodes[1], "addOpacity");
 }, false);
 
-// event listener for drag over, set background of "drop zone" element;
+// Event listener for drag over, set background of "drop zone" element
 document.addEventListener("dragover", function (event) {
     event.preventDefault();
     if (event.target.className == "dragHere"  && dragged.dataset.parentid != event.target.parentNode.parentNode.dataset.id) {
@@ -60,14 +55,14 @@ document.addEventListener("dragover", function (event) {
 }, false);
 
 
-// reset background of drag zone;
+// Reset background of drag zone
 document.addEventListener("dragleave", function (event) {
     if (event.target.className == "dragHere") {
         removesClass(event.target.parentNode.parentNode, "dragHereColor");
     }
 }, false);
 
-// drop event listener
+// Drop event listener
 document.addEventListener("drop", function (event) {
     event.preventDefault();
     if (dragged.dataset.parentid != event.target.parentNode.parentNode.dataset.id) {
@@ -87,4 +82,3 @@ document.addEventListener("drop", function (event) {
     }
 
 }, false);
-

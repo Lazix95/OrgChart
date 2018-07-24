@@ -1,7 +1,9 @@
 
-/* global objects, marginTopOfEveryLevel */
+/*
+ * Global objects, marginTopOfEveryLevel
+*/
 
-// Get canvas, height and width setting;
+// Get canvas, height and width setting
 var canvas = document.getElementById('js-canvas');
 var width = canvas.width = document.getElementById("js-orgChart").getBoundingClientRect().width;
 var context = canvas.getContext('2d');
@@ -9,20 +11,20 @@ var colorOfLines = "#8b0000";
 var imageObj = new Image();
 imageObj.src = "img/logo.png";
 
-// scroll and resize event listeners;
+// Scroll and resize event listeners
 window.addEventListener('scroll', scrollOnCanvas, false);
 window.addEventListener('resize', resizeCanvas, false);
 window.addEventListener('fullscreenchange', resizeCanvas, false);
 
 quantoxFlag = false;
 
-//on scroll function;
+// On scroll function
 window.onscroll = function (e) {
     fillArrayData();
     drawStuff();
 };
 
-// resize canvas width;
+// Resize canvas width
 function resizeCanvas() {
     width = canvas.width = canvas.width = document.getElementById("js-orgChart").getBoundingClientRect().width;
     canvas.height = window.innerHeight;
@@ -38,7 +40,7 @@ function resizeCanvas() {
     }, 100);
 }
 
-// redraw canvas on scroll;
+// Redraw canvas on scroll
 function scrollOnCanvas() {
     if (objects != null) {
         setWidthOfOrgChart();
@@ -47,7 +49,7 @@ function scrollOnCanvas() {
     }
 }
 
-// draw staff on canvas;
+// Draw staff on canvas
 function drawStuff() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     if (quantoxFlag) {
@@ -84,47 +86,10 @@ function drawStuff() {
     }
 }
 
-// Get browser width;
+// Get browser width
 function getWidth() {
     return Math.max(
             document.documentElement.offsetWidth,
             document.documentElement.clientWidth
             );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

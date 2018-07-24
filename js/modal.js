@@ -1,4 +1,7 @@
-/* global modalContent */
+
+/*
+ *  Global modalContent 
+ */
 
 // Get modal element
 var modal = document.getElementById('js-mySimpleModal');
@@ -12,7 +15,7 @@ var addBossFlag = false;
 window.addEventListener('click', outsideClick);
 window.addEventListener('click', outsideSettingsClick);
 
-//open modal
+// Open modal
 function openModal(elem) {
     document.getElementById("js-modalContent").innerHTML = modalContent;
     document.getElementById("js-modalTitle").innerHTML = "ADD NEW PERSON";
@@ -21,12 +24,12 @@ function openModal(elem) {
     addClass(document.getElementById("js-body"),"modalShown");
 }
 
-// open settings modal
+// Open settings modal
 function openSettingsModal() {
     addClass(document.getElementById("js-body"),"modalShownSettings");
 }
 
-// close add, edit nodes modal
+// Close add, edit nodes modal
 function closeModal() {
     removesClass(document.getElementById("js-mySimpleModal"),"question");
      document.getElementById("js-modalContent").innerHTML = modalContent;
@@ -47,20 +50,20 @@ function closeModal() {
     edit = false;
 }
 
-// outside click function
+// Outside click function
 function outsideClick(e) {
     if (e.target == modal) {
         closeModal();
     }
 }
 
-// close settings modal
+// Close settings modal
 function closeModalSettings() {
     startAnimationReverse();
     removesClass(document.getElementById("js-body"),"modalShownSettings");
 }
 
-// outside settings modal click function
+// Outside settings modal click function
 function outsideSettingsClick(e) {
     if (e.target === document.getElementById("js-mySimpleModalSettings")) {
         closeModalSettings();
@@ -68,13 +71,13 @@ function outsideSettingsClick(e) {
 
 }
 
-// settings modal animation listener
+// Settings modal animation listener
 document.getElementById("js-settings").onclick = function () {
     startAnimation();
     openSettingsModal();
 };
 
-// animation at modal open;
+// Animation at modal open
 function startAnimation() {
     if (hasClass(document.getElementById("js-settings"),"settingAnimationReverse")){
         exchangeClass(document.getElementById("js-settings"),"settingAnimationReverse","settingAnimation");
@@ -84,17 +87,12 @@ function startAnimation() {
     
 }
 
-// animation at modal close
+// Animation at modal close
 function startAnimationReverse() {
     exchangeClass(document.getElementById("js-settings"),"settingAnimation","settingAnimationReverse");
 }
 
-// upload picture event click trigger;
+// Upload picture event click trigger
 function clickChoseFile() {
     document.getElementById("js-choseFile").click();
 }
-
-
-
-
-
