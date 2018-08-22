@@ -329,7 +329,8 @@ html {
   color: white;
   cursor: pointer;
 }
-.myModal > .modalContent > button:last-of-type {
+.myModal > .modalContent > button:last-of-type,
+.myModal > .modalContent .loginForm > button {
   border-color: #0c7dff;
   background-color: #0c7dff;
   padding: 5px 10px;
@@ -379,12 +380,53 @@ html {
   margin: 0;
   border-radius: 0;
 }
-.myModal > .modalContent > .loginForm > input {
-  display: block;
-  margin: 10px auto;
+.myModal > .modalContent > .mainBody {
+  padding: 50px 70px 70px 71px;
 }
-.myModal > .modalContent > .loginForm > button {
-  margin: 10px;
+.myModal > .modalContent > .mainBody > .loginForm .myFormGroup {
+  margin-bottom: 10px;
+}
+.myModal > .modalContent > .mainBody > .loginForm .myFormGroup > input {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+}
+.myModal > .modalContent > .mainBody > .loginForm > button {
+  box-sizing: border-box;
+  color: #ffffff;
+  font-size: 14px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+  margin: 0;
+}
+.myModal > .modalContent > .mainBody > .loginForm > .forgot {
+  text-align: left;
+  margin-bottom: 30px;
+}
+.myModal > .modalContent > .mainBody > .loginForm > .forgot > a {
+  color: #777777;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.myModal > .modalContent > .mainBody > .panel > p {
+  color: #777777;
+  font-size: 14px;
+  margin-bottom: 30px;
+  line-height: 24px;
+}
+.myModal > .modalContent > .mainBody > .panel > h2 {
+  color: #444444;
+  font-size: 18px;
+  margin: 0 0 8px 0;
 }
 @keyframes modalopen {
   from {
@@ -400,6 +442,42 @@ html {
 }
 .dragHereColor > .myThumbNaill > .dragHere {
   background: #0000ff;
+}
+/*
+* error message
+*/
+.loginAlert {
+  display: block;
+  z-index: 999;
+  width: 200px;
+  margin: auto;
+  background-color: #f2dede;
+  border-color: #ebcccc;
+  color: #a94442;
+  border: 1px solid transparent;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-bottom: 5px;
+  position: relative;
+}
+.loginAlert > p {
+  display: inline-block;
+  margin: 5px 0;
+}
+.loginAlert > .close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  opacity: 0.5;
+  color: #000;
+}
+.loginAlert .close:hover {
+  opacity: 1;
+}
+.alertHidden {
+  display: none;
 }
 /*
 * Settings

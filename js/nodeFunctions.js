@@ -17,6 +17,7 @@ function enterNewPerson() {
         picture: document.getElementById("js-myCustomImage").src
     };
     objects.push(newPerson);
+    saveChanges();
     enterData();
     closeModal();
 }
@@ -52,6 +53,7 @@ function editPerson() {
         }
     }
     edit = false;
+    saveChanges();
     enterData();
     closeModal();
 }
@@ -82,6 +84,7 @@ function addBoss() {
     addBossFlag = false;
     addClass(document.getElementById("js-bossButton"), "buttonHidden")
     objects.push(newBoss);
+    saveChanges();
     enterData();
     closeModal();
 }
@@ -90,6 +93,7 @@ function addBoss() {
 var openFile = function (event) {
     var input = event.target;
     var reader = new FileReader();
+    console.log(reader);
     reader.onload = function () {
         TheFileContents = reader.result;
         document.getElementById("js-TheImageContents").innerHTML = '<img id="js-myCustomImage" width="200" src="' + TheFileContents + '" />\n\
@@ -118,6 +122,7 @@ function deletePerson(elem) {
             objects[i].parentID = deletedParentId;
         }
     }
+    saveChanges();
     enterData();
     setWidthOfOrgChart();
     drawStuff();

@@ -1,26 +1,24 @@
-
 /*
 * Variables
 */
+
 @thumbNailBackgroundColor: #ffe4c4;
-@modalBackgroundColor:#f4f4f4;
-@modalBackShadowColor: rgba(0,0,0,0.5);
-
-
+@modalBackgroundColor: #f4f4f4;
+@modalBackShadowColor: rgba(0, 0, 0, 0.5);
 /*
 * Mixins
 */
-.squere(@a){
+
+.squere(@a) {
     width: @a;
     height: @a;
 }
 
-.box-shadow(@string,@string2) {
+.box-shadow(@string, @string2) {
     box-shadow: @string @string2;
-    -webkit-box-shadow:@string @string2;
+    -webkit-box-shadow: @string @string2;
     -moz-box-shadow: @string @string2;
 }
-
 
 .transform(@transforms) {
     -moz-transform: @transforms;
@@ -30,14 +28,12 @@
     transform: @transforms;
 }
 
-.transition(@transition){
-    -moz-transition:    @transition;
-    -o-transition:      @transition;
+.transition(@transition) {
+    -moz-transition: @transition;
+    -o-transition: @transition;
     -webkit-transition: @transition;
-    transition:         @transition;
-
+    transition: @transition;
 }
-
 
 /*
 * Main Content
@@ -47,9 +43,11 @@
 * Global Changes
 */
 
-html{min-height: 100%;}
+html {
+    min-height: 100%;
+}
 
-.body{
+.body {
     height: 100%;
     text-align: center;
     margin: 0;
@@ -57,65 +55,79 @@ html{min-height: 100%;}
     background-size: 1000% 100%;
     font-family: arial;
 }
-.modalShown{
-    >.nods{
+
+.modalShown {
+    >.nods {
         display: block;
     }
 }
-.modalShownSettings{
-    >.settingsModal{
+
+.loginModalShown {
+    >.login {
         display: block;
     }
 }
-.settingAnimation{
+
+.modalShownSettings {
+    >.settingsModal {
+        display: block;
+    }
+}
+
+.settingAnimation {
     animation: rotate 0.7s;
 }
 
-.settingAnimationReverse{
+.settingAnimationReverse {
     animation: rotateReverse 0.7s;
 }
-.addOpacity{
+
+.addOpacity {
     opacity: 0.5;
 }
-
 
 /*
 * Boss Button
 */
-.addBossButton{
+
+.addBossButton {
     .squere(75px);
     border-radius: 99999px;
-    margin-top:50px;
+    margin-top: 50px;
     text-align: center;
     border: none;
     box-shadow: 1px 1px black;
     cursor: pointer;
     padding: 1px 4px 1px 6px;
-    >img{
+    >img {
         .squere(50px);
     }
 }
-.addBossButton:hover{
+
+.addBossButton:hover {
     .squere(80px);
 }
-.addBossButton:active{
+
+.addBossButton:active {
     box-shadow: none;
 }
-.buttonHidden{
+
+.buttonHidden {
     display: none;
 }
 
 /*
 * Canvas
 */
-.canvas{
+
+.canvas {
     display: block;
     position: fixed;
-    top:0;
-    z-index:-1;
+    top: 0;
+    z-index: -1;
 }
 
-.canvasHidden{
+.canvasHidden {
     display: none;
 }
 
@@ -123,71 +135,75 @@ html{min-height: 100%;}
 * Org Chart
 */
 
-.orgChart{
+.orgChart {
     .squere(100%);
     text-align: center;
     z-index: 999;
     margin-top: 50px;
 }
 
-.dropzone{
+.dropzone {
     min-height: 10px;
     min-width: 10px;
     display: inline-block;
-    >.dropzone{
+    >.dropzone {
         margin: 0;
         float: left;
     }
-    >.myThumbNaill{
+    >.myThumbNaill {
         box-shadow: 3px 3px 5px 6px #20212329;
         background-color: @thumbNailBackgroundColor;
         position: relative;
         width: 190px;
         padding: 0 5px;
-        display: inline-block; 
-        margin: 10px 10px 10px 10px; 
+        display: inline-block;
+        margin: 10px 10px 10px 10px;
         text-align: center;
         border-radius: 10px;
         border: 1px solid transparent;
-
-        >.dragHere{
-            background-color: rgba(0,0,255,0.2);
+        >.dragHere {
+            background-color: rgba(0, 0, 255, 0.2);
             margin: 10px 10px !important;
             padding: 10px 0;
             border-radius: 10px;
             text-align: center;
         }
-        >hr{border: none}
-        >.text{
-            >hr{border: none}
+        >hr {
+            border: none
         }
-        >.controlButtons{
+        >.text {
+            >hr {
+                border: none
+            }
+        }
+        >.controlButtons {
             position: absolute;
             top: 0;
             left: 0;
             border-radius: 10px;
             width: 100%;
             height: 100%;
-            background-color: rgba(255,255,255,0.5);
+            background-color: rgba(255, 255, 255, 0.5);
             display: none;
             animation: slowShow;
             animation-duration: 0.6s;
-            >div{
+            >div {
                 .squere(50px);
-                >img{
+                >img {
                     .squere(30px);
                     padding-top: 10px;
                 }
-                >.icon_1{
+                >.icon_1 {
                     .squere(50px);
                     padding: 0;
-
                 }
-                >.icon_2{
+                >.icon_2 {
                     margin-bottom: 10px;
                 }
             }
-            >.trash,>.pen,>.plus{
+            >.trash,
+            >.pen,
+            >.plus {
                 display: inline-block;
                 margin: 4px 14px;
                 font-size: 25px;
@@ -198,28 +214,30 @@ html{min-height: 100%;}
                 padding: 1px;
             }
         }
-        >.spaceForPicture{
+        >.disabledControll {
+            display: none !important;
+        }
+        >.spaceForPicture {
             overflow: auto;
-            >img{
+            >img {
                 .squere(80px);
                 display: inline-block;
                 margin: 10px 0 0 0;
             }
         }
     }
-    .addDashBorder{
-        border-image-outset: 5px; 
-        border-image-repeat: repeat; 
+    .addDashBorder {
+        border-image-outset: 5px;
+        border-image-repeat: repeat;
         border-image-source: url("http://matthewjamestaylor.com/blog/selection-big.gif") !important;
-        border-image-slice: 6; 
+        border-image-slice: 6;
         border-image-width: 1px;
     }
-    >.myThumbNaill:first-of-type{
+    >.myThumbNaill:first-of-type {
         display: block;
         margin: auto;
         margin-bottom: 50px;
-
-        >.text>p{
+        >.text>p {
             margin: 0 0 5px 0;
             font-size: 20px;
             width: 100%;
@@ -227,81 +245,95 @@ html{min-height: 100%;}
             text-overflow: ellipsis;
         }
     }
-    >.myThumbNaill:only-child{
+    >.myThumbNaill:only-child {
         margin: 30px;
         margin-top: 0;
     }
 }
 
-.myThumbNaill:hover >.controlButtons{
+.myThumbNaill:hover>.controlButtons {
     display: block;
 }
-.trash:hover,.pen:hover,.plus:hover{
+
+.trash:hover,
+.pen:hover,
+.plus:hover {
     background-color: #00bfff;
 }
-@keyframes slowShow{
-    from{opacity:0};
-    to{opacitiy:1};
+
+@keyframes slowShow {
+    from {
+        opacity: 0
+    }
+    ;
+    to {
+        opacitiy: 1
+    }
+    ;
 }
-.emptyDropzone{display: none}
+
+.emptyDropzone {
+    display: none
+}
 
 /*
 * Modal
 */
 
-.myModal{
-    display:none;
+.myModal {
+    display: none;
     position: fixed;
-    z-index:999;
+    z-index: 999;
     left: 0;
-    top:0;
+    top: 0;
     height: 100%;
-    width:100%;
+    width: 100%;
     overflow: auto;
     background-color: @modalBackShadowColor;
-    >.modalContent{
+    >.modalContent {
         box-shadow: 3px 3px 5px 6px #20212329;
         background-color: #8bafc8;
         border-radius: 10px;
-        margin: 50px auto 0 auto;;
+        margin: 50px auto 0 auto;
+        ;
         max-width: 100%;
         width: 450px;
         max-height: 100%;
-        animation-name:modalopen;
-        animation-duration:1s;
+        animation-name: modalopen;
+        animation-duration: 1s;
         overflow: auto;
-        position:relative;
-        >.close{
+        position: relative;
+        >.close {
             float: right;
             font-size: 30px;
             cursor: pointer;
             margin: 8px 20px 3px 0;
             opacity: 0.5;
         }
-        >.close:hover{
+        >.close:hover {
             opacity: 1;
         }
-        >.choseTitle{
+        >.choseTitle {
             display: inline-block;
             margin: 15px 0 5px 30px;
         }
-        >.modalTitle{
+        >.modalTitle {
             font-weight: bold;
             font-size: 20px;
         }
-        >.theImageContents{
+        >.theImageContents {
             float: left;
             width: 80px;
-            height:250px; 
-            >img{
+            height: 250px;
+            >img {
                 .squere(80px);
                 margin-top: 65px;
                 margin-left: 40px
             }
-            >.choseFile{
+            >.choseFile {
                 display: none;
             }
-            >.choseFileButton{
+            >.choseFileButton {
                 border-color: #0c7dff;
                 background-color: #0c7dff;
                 padding: 3px 10px;
@@ -310,32 +342,30 @@ html{min-height: 100%;}
                 width: 134px;
                 margin: 77px 0 0 16px;
                 cursor: pointer;
-                >p{
+                >p {
                     display: inline-block;
                     margin: 0;
                     margin-top: 3px;
                     margin-left: 6px;
                 }
-                >img{
+                >img {
                     width: 20px;
                     float: left;
                 }
             }
         }
-        .error{
+        .error {
             margin: 0;
             height: 15px;
             color: red;
         }
-
-        >input::placeholder{
+        >input::placeholder {
             font-style: italic;
             font-weight: bold;
             font-family: serif;
             font-size: 15px;
         }
-
-        >input{
+        >input {
             display: block;
             margin: auto;
             margin-top: 8px;
@@ -344,9 +374,8 @@ html{min-height: 100%;}
             height: 25px;
             border-radius: 8px;
             border: none;
-
         }
-        >button:first-of-type{
+        >button:first-of-type {
             border-color: #0c7dff;
             background-color: #0c7dff;
             padding: 5px 10px;
@@ -354,42 +383,42 @@ html{min-height: 100%;}
             color: white;
             cursor: pointer;
         }
-        >button:last-of-type{
+        >button:last-of-type,
+        .loginForm>button {
             border-color: #0c7dff;
             background-color: #0c7dff;
             padding: 5px 10px;
             border-radius: 5px;
             margin-left: 10px;
             color: white;
-            cursor: pointer; 
+            cursor: pointer;
         }
-        .choseFile{
+        .choseFile {
             float: left;
             margin-left: 15px;
             padding: 5px 10px 0 10px;
         }
-
-        >button{
+        >button {
             margin: 20px auto;
         }
-        .closeBtn{
-            color:#ccc;
+        .closeBtn {
+            color: #ccc;
             float: right;
-            font-size:30px;
+            font-size: 30px;
             color: grey;
             margin-right: 20px;
         }
-
-        .closeBtn:hover,.closeBtn:focus{
-            color:#000;
+        .closeBtn:hover,
+        .closeBtn:focus {
+            color: #000;
             text-decoration: none;
-            cursor:pointer;
+            cursor: pointer;
         }
-        >.themeSelect{
+        >.themeSelect {
             display: block;
             margin: auto;
         }
-        >.only:first-of-type{
+        >.only:first-of-type {
             float: left;
             width: 50%;
             padding: 15px;
@@ -397,7 +426,7 @@ html{min-height: 100%;}
             margin: 0;
             border-radius: 0;
         }
-        >.all:last-of-type{
+        >.all:last-of-type {
             float: right;
             width: 50%;
             padding: 15px;
@@ -405,30 +434,128 @@ html{min-height: 100%;}
             margin: 0;
             border-radius: 0;
         }
+        >.mainBody {
+            padding: 50px 70px 70px 71px;
+            >.loginForm {
+                .myFormGroup {
+                    margin-bottom: 10px;
+                    >input {
+                        background: #f7f7f7 none repeat scroll 0 0;
+                        border: 1px solid #d4d4d4;
+                        border-radius: 4px;
+                        box-sizing: border-box;
+                        font-size: 14px;
+                        height: 50px;
+                        line-height: 50px;
+                        display: block;
+                        width: 100%;
+                        padding: .375rem .75rem;
+                    }
+                }
+                >button {
+                    //  background: #f0ad4e none repeat scroll 0 0;
+                    //  border-color: #f0ad4e;
+                    box-sizing: border-box;
+                    color: #ffffff;
+                    font-size: 14px;
+                    width: 100%;
+                    height: 50px;
+                    line-height: 50px;
+                    padding: 0;
+                    margin: 0;
+                }
+                >.forgot {
+                    text-align: left;
+                    margin-bottom: 30px;
+                    >a {
+                        color: #777777;
+                        font-size: 14px;
+                        text-decoration: underline;
+                    }
+                }
+            }
+            >.panel {
+                >p {
+                    color: #777777;
+                    font-size: 14px;
+                    margin-bottom: 30px;
+                    line-height: 24px;
+                }
+                >h2 {
+                    color: #444444;
+                    font-size: 18px;
+                    margin: 0 0 8px 0;
+                }
+            }
+        }
     }
-
-    @keyframes modalopen{
-        from{ opacity: 0}
-        to {opacity: 1}
+    @keyframes modalopen {
+        from {
+            opacity: 0
+        }
+        to {
+            opacity: 1
+        }
     }
 }
 
-.question{
-    .modalContent{
+.question {
+    .modalContent {
         top: 40%;
         margin-top: 0;
     }
 }
 
-.dragHereColor{
-    >.myThumbNaill>.dragHere{background: rgba(0,0,255,1);}
+.dragHereColor {
+    >.myThumbNaill>.dragHere {
+        background: rgba(0, 0, 255, 1);
+    }
 }
+
+/*
+* error message
+*/
+.loginAlert{
+    display: block;
+    z-index: 999;
+    width: 200px;
+    margin: auto;
+    background-color: #f2dede;
+    border-color: #ebcccc;
+    color: #a94442;
+    border: 1px solid transparent;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-bottom: 5px;
+    position: relative;
+    >p{
+        display: inline-block;
+        margin: 5px 0;
+    }
+    >.close{
+        position: absolute;
+        top: 3px;
+        right: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        opacity: 0.5;
+        color: #000
+    }
+    .close:hover{
+        opacity: 1;
+    }
+}
+
+.alertHidden{
+    display: none;
+}
+
 
 /*
 * Settings
 */
 
-.settings{
+.settings {
     .transition(all 0.5s);
     position: fixed;
     right: 50px;
@@ -438,38 +565,49 @@ html{min-height: 100%;}
     opacity: 0.5;
     height: 57.5px;
 }
-.themeSelect{
+
+.themeSelect {
     padding: 5px 15px;
     border-radius: 4px;
     border: none;
 }
-.settings:hover{
+
+.settings:hover {
     opacity: 1;
     transform: rotate
 }
-#closeBtnSettings{
-    margin: 20px 0 20px 0;
 
+#closeBtnSettings {
+    margin: 20px 0 20px 0;
 }
 
-.bossDeleteMessage{
+.bossDeleteMessage {
     color: red;
     opacity: 0;
     font-size: 18px;
     display: inline-block;
     float: left;
-    top:0; 
+    top: 0;
 }
 
-@keyframes rotate{
-    from{transform: rotate(0deg);}
-    to{transform: rotate(360deg);}
-}
-@keyframes rotateReverse{
-    from{transform: rotate(0deg);}
-    to{transform: rotate(-360deg);}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-.dropzone > .myThumbNaill > .fullBlueColor{
-    background-color: rgba(0,0,255,1);
+@keyframes rotateReverse {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.dropzone>.myThumbNaill>.fullBlueColor {
+    background-color: rgba(0, 0, 255, 1);
 }

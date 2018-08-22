@@ -72,6 +72,7 @@ function dropNode(event, dropFlag) {
                     objects[i].parentID = event.target.parentNode.parentNode.dataset.id;
                 }
             }
+            saveChanges();
             enterData();
         }
         event.target.style.background = "";
@@ -108,5 +109,6 @@ function switchPlaces(dragged, target) {
     objects[j].id = draggedID;
     objects[k].parentID = targetParentID;
     objects[k].id = targetID;
+    saveChanges();
     enterData();
 }

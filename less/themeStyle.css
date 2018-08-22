@@ -1,0 +1,178 @@
+/*
+* Theme One
+*/
+.themeOne {
+  background: none;
+  background-color: #a76d40;
+}
+.themeOne > .myModal .modalContent {
+  background-color: #9b8b5c;
+}
+.themeOne > .myModal .modalContent > button,
+.themeOne > .myModal .modalContent .mainBody > .loginForm > button {
+  background-color: #8dac13;
+  border-color: #8dac13;
+}
+.themeOne > .myModal .modalContent .theImageContents > .choseFileButton {
+  background-color: #8dac13;
+  border-color: #8dac13;
+}
+.themeOne > .orgChart > div > div .myThumbNaill > .controlButtons > div:hover {
+  background-color: #b2a726;
+}
+.themeOne > .orgChart > div > div .myThumbNaill > .text > p {
+  font-family: sans-serif;
+}
+/*
+* Theme Two
+*/
+.themeTwo {
+  background: #44A08D;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #093637, #44A08D);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(#093637, #44A08D);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: 120% 120%;
+}
+.themeTwo > .myModal .modalContent {
+  background: #44A08D;
+}
+.themeTwo > .myModal .modalContent > button,
+.themeTwo > .myModal .modalContent .mainBody > .loginForm > button {
+  background-color: #6d8412;
+  border-color: #6d8412;
+}
+.themeTwo > .myModal .modalContent > .theImageContents > .choseFileButton {
+  background-color: #6d8412;
+  border-color: #6d8412;
+}
+.themeTwo > .orgChart > div > div .myThumbNaill > .controlButtons > div:hover {
+  background-color: #429b89;
+}
+.themeTwo > .orgChart > div > div .myThumbNaill > .controlButtons > .text > p {
+  font-family: serif;
+}
+/*
+* Quantox Theme
+*/
+.quantox {
+  background: none;
+  background-color: none;
+}
+.quantox > .dropzone > .myThumbNaill {
+  background-color: #96ca3a;
+}
+.quantox > .orgChart > div > div .myThumbNaill {
+  background-color: #96ca3a;
+}
+.quantox > .orgChart > div > div .myThumbNaill > .controlButtons > div:hover {
+  background-color: #6c6d70;
+}
+.quantox > .orgChart > div > div .myThumbNaill > .controlButtons > .text > p {
+  font-family: serif;
+}
+.quantox > .orgChart > div > div .dropzone > .myThumbNaill {
+  background-color: #96ca3a;
+}
+.quantox > .myModal .modalContent {
+  background-color: #ffffff;
+}
+.quantox > .myModal .modalContent > input {
+  border-radius: unset;
+  box-shadow: unset;
+  border-bottom: 1px solid #dcdcdc;
+}
+.quantox > .myModal .modalContent > button,
+.quantox > .myModal .modalContent > .mainBody > .loginForm > button {
+  background-color: #96ca3a;
+  border-color: #96ca3a;
+}
+.quantox > .myModal .modalContent > .theImageContents > .choseFileButton {
+  background-color: #96ca3a;
+  border-color: #96ca3a;
+}
+.quantox > .myModal .modalContent > .themeSelect {
+  border-bottom: 1px solid #dcdcdc;
+  border-radius: unset;
+  padding: 5px 26px;
+}
+/*
+* Horizontal Node Look
+*/
+.horizontal > .orgChart > div > div > .myThumbNaill {
+  overflow: auto;
+  width: 380px;
+}
+.horizontal > .orgChart > div > div > .myThumbNaill > .spaceForPicture {
+  display: inline-block;
+  margin-top: 0px;
+  float: left;
+  margin-left: 36px;
+  margin-top: 14px;
+}
+.horizontal > .orgChart > div > div > .myThumbNaill > .spaceForPicture > img {
+  margin: 0;
+}
+.horizontal > .orgChart > div > div > .myThumbNaill > .text {
+  display: inline-block;
+  margin-bottom: 3px;
+  float: left;
+  margin-left: 26px;
+  margin-top: 14px;
+}
+.horizontal > .orgChart > div > div > .myThumbNaill .dragHere {
+  float: left;
+  width: 95%;
+}
+.horizontal > .orgChart > div > div > .myThumbNaill > .controlButtons > .trash,
+.horizontal > .orgChart > div > div > .myThumbNaill > .controlButtons > .pen,
+.horizontal > .orgChart > div > div > .myThumbNaill > .controlButtons > .plus {
+  float: right;
+}
+.horizontal > .orgChart > div > div > .myThumbNaill > .controlButtons > .pen {
+  margin-right: 73px;
+}
+.horizontal > .orgChart > div > div .dropzone .myThumbNaill {
+  overflow: auto;
+  width: 380px;
+}
+.horizontal > .orgChart > div > div .dropzone .myThumbNaill > .spaceForPicture {
+  display: inline-block;
+  margin-top: 0px;
+  float: left;
+  margin-left: 36px;
+  margin-top: 14px;
+}
+.horizontal > .orgChart > div > div .dropzone .myThumbNaill > .spaceForPicture > img {
+  margin: 0;
+}
+.horizontal > .orgChart > div > div .dropzone .myThumbNaill > .text {
+  display: inline-block;
+  margin-bottom: 3px;
+  float: left;
+  margin-left: 26px;
+  margin-top: 14px;
+}
+.horizontal > .orgChart > div > div .dropzone .myThumbNaill .dragHere {
+  float: left;
+  width: 95%;
+}
+.horizontal > .orgChart > div > div .dropzone .myThumbNaill > .controlButtons > .trash,
+.horizontal > .orgChart > div > div .dropzone .myThumbNaill > .controlButtons > .pen,
+.horizontal > .orgChart > div > div .dropzone .myThumbNaill > .controlButtons > .plus {
+  float: right;
+}
+.horizontal > .orgChart > div > div .dropzone .myThumbNaill > .controlButtons > .pen {
+  margin-right: 73px;
+}
+/*
+*Small Node Look
+*/
+.small > .orgChart > div > div .myThumbNaill {
+  width: 165px;
+}
+.small > .orgChart > div > div .dropzone > .myThumbNaill:only-child {
+  margin: 15px;
+  margin-top: 0;
+}

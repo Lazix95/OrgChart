@@ -9,13 +9,15 @@ var heightOfElements = 200;
 var selectedPersonID;
 var selectedPerson;
 var minID = 0;
-var objects = [];
+var objects = null;
 var strSelect = 1;
 var str;
 var str2;
 
 // This function create nods and fill them with data
 function fillData() {
+    if ((strSelect == 1 || strSelect == 2) && loggedIn ) strSelect += 2;
+
     if (objects) {
         var parser = new DOMParser();
         var elem = document.getElementById("js-orgChart");
@@ -74,27 +76,30 @@ function saveToLocalStorge() {
     localStorage.setItem("minID", minID);
 }
 
+// Saves changes on server
+function saveChanges(){
+    if (loggedIn){
+        console.log("dawda")
+        objects.minID = minID;
+        var dataToSave = {
+            objects: objects,
+            minID:minID
+        }
+        console.log(dataToSave)
+        data.open("put",'https://my-project-1527861591123.firebaseio.com/objects.json?auth='+idToken,true)
+        data.send(JSON.stringify(dataToSave))
+    }
+}
+
 // Load elements from local storge
-function loadFromLocalStorge() {
-    var dataToLoad = localStorage.getItem("objects");
-    minID = parseInt(localStorage.getItem("minID"));
-    dataToLoad = JSON.parse(dataToLoad);
-    objects = dataToLoad;
+function loadData() {
+    data.open("get",'https://my-project-1527861591123.firebaseio.com/objects.json')
+    data.send();
 }
 
 // Load elements on start, check if Boss exist in local storge
 function loadOnStart() {
-    loadFromLocalStorge();
-    if (objects == null) {
-        removesClass(document.getElementById("js-bossButton"), "buttonHidden");
-    } else {
-        fillData();
-        createHierarchy();
-        fillArrayData();
-        setTimeout(function () {
-            setScrollbarPosition();
-        }, 100);
-    }
+    loadData();   
 }
 
 // Get width of Bosses children
@@ -136,6 +141,8 @@ function start() {
     enterData();
     loadTheme();
     drawStuff();
+    handleNewHash()
+window.addEventListener('hashchange', handleNewHash, false);
 }
 
 // Add cass
@@ -175,4 +182,5 @@ function hasClass(element, className) {
 // Start on page load
 window.onload = function () {
     start();
+    
 };

@@ -14,6 +14,7 @@ var addBossFlag = false;
 // Listen for clicks
 window.addEventListener('click', outsideClick);
 window.addEventListener('click', outsideSettingsClick);
+window.addEventListener('click', outsideLoginModalClick);
 
 // Open modal
 function openModal(elem) {
@@ -63,10 +64,22 @@ function closeModalSettings() {
     removesClass(document.getElementById("js-body"),"modalShownSettings");
 }
 
+function closeLoginModal() {
+    removesClass(document.getElementById("js-body"),"loginModalShown");
+    if (alertShown) closeAlert();
+}
+
+
 // Outside settings modal click function
 function outsideSettingsClick(e) {
     if (e.target === document.getElementById("js-mySimpleModalSettings")) {
         closeModalSettings();
+    }
+}
+
+function outsideLoginModalClick(e) {
+    if (e.target === document.getElementById("js-myLoginModal")) {
+        closeLoginModal();
     }
 }
 
