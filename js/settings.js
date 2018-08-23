@@ -12,6 +12,7 @@ var body = document.getElementById("js-body");
 
 // Change theme
 function changeTheme(e) {
+    startAnimationReverse();
     selectValue = e.value;
     if (e.value === "Theme 1") {
         themeIndicator = "TH1";
@@ -24,7 +25,7 @@ function changeTheme(e) {
         localStorage.setItem("themeIndicator", themeIndicator);
         localStorage.setItem("selectValue", selectValue);
         setTheme(themeIndicator);
-    } else if (e.value === "Original") {
+    } else if (e.value === "Theme 3") {
         themeIndicator = "default";
         localStorage.setItem("themeIndicator", themeIndicator);
         localStorage.setItem("selectValue", selectValue);
@@ -78,13 +79,14 @@ function setTheme(ti) {
         }
         addClass(body, "quantox")
         quantoxFlag = true;
-        colorOfLines = "aqua";
+        colorOfLines = "#96ca3a";
         drawStuff();
     }
 }
 
 // Change node look
 function changeNodeLook(e) {
+    startAnimationReverse();
     selectValueNode = e.value;
     if (e.value === "Horizontal") {
         nodeLookIndicator = "horizontal";

@@ -17,7 +17,6 @@ var str2;
 // This function create nods and fill them with data
 function fillData() {
     if ((strSelect == 1 || strSelect == 2) && loggedIn ) strSelect += 2;
-
     if (objects) {
         var parser = new DOMParser();
         var elem = document.getElementById("js-orgChart");
@@ -69,23 +68,14 @@ function fillArrayData() {
     }
 }
 
-// Save elements to local storge
-function saveToLocalStorge() {
-    var dataToSave = JSON.stringify(objects);
-    localStorage.setItem('objects', dataToSave);
-    localStorage.setItem("minID", minID);
-}
-
 // Saves changes on server
 function saveChanges(){
     if (loggedIn){
-        console.log("dawda")
         objects.minID = minID;
         var dataToSave = {
             objects: objects,
             minID:minID
         }
-        console.log(dataToSave)
         data.open("put",'https://my-project-1527861591123.firebaseio.com/objects.json?auth='+idToken,true)
         data.send(JSON.stringify(dataToSave))
     }
@@ -93,7 +83,7 @@ function saveChanges(){
 
 // Load elements from local storge
 function loadData() {
-    data.open("get",'https://my-project-1527861591123.firebaseio.com/objects.json')
+    data.open("get",'https://my-project-1527861591123.firebaseio.com/objects.json',true)
     data.send();
 }
 

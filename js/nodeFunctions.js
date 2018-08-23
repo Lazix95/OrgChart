@@ -130,7 +130,6 @@ function deletePerson(elem) {
 
 // Set of functions for reinitialization
 function enterData() {
-    saveToLocalStorge();
     fillData();
     createHierarchy();
     setWidthOfOrgChart();

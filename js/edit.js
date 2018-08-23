@@ -1,4 +1,6 @@
 var loggedIn = false
+var username = null;
+var password = null;
 
 var admin = {
     email:"admin@admin.com",
@@ -11,7 +13,16 @@ function handleNewHash() {
         LogOut(loggedIn);
         loggedIn = false;
     }else if(window.location.hash == "#/edit" && !loggedIn){
-        addClass(document.getElementById("js-body"),"loginModalShown")
+        var tryUsername = localStorage.getItem("username");
+        var tryPassword = localStorage.getItem("password");
+        if (tryUsername && tryPassword){
+            username = tryUsername;
+            password = tryPassword;
+            logIn();
+        }else{
+            addClass(document.getElementById("js-body"),"loginModalShown")
+        }
+        
     }
   }
 
@@ -32,9 +43,13 @@ function handleNewHash() {
 
 
   function logIn(e){
+    if (!localStorage.getItem("username") && !localStorage.getItem("password")){
+        username = e.target.email.value;
+        password = e.target.password.value;
+    }
     var payload = {
-        email:e.target.email.value,
-        password: e.target.password.value,
+        email:username,
+        password: password,
         returnSecureToken:true
     };
     singIn.open("POST",'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyDVOQ2HPS2v6ow2XVnyK8sn2piTLH0-aP0',true)

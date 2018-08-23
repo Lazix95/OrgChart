@@ -11,6 +11,10 @@ singIn.onload = function () {
     if (singIn.status >= 200 && singIn.status < 400) {
         if (alertShown) closeAlert()
         loggedIn = true;
+        if (!localStorage.getItem("username") && !localStorage.getItem("password")){
+            localStorage.setItem("username",username);
+            localStorage.setItem("password",password);
+        }
         idToken = data.idToken;
         userId = data.localId;
         start();
@@ -24,6 +28,7 @@ singIn.onload = function () {
 data.onload = function () {
     var body = JSON.parse(this.response);
     if (data.status >= 200 && data.status < 400 && body) {
+        addClass(document.getElementById("js-loading"), "hideLoading")
         objects = body.objects;
         minID = body.minID;
         fillData();
