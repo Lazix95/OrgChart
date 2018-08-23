@@ -16,7 +16,7 @@ document.addEventListener("drag", function (event) {
     getNodeTree(dragged);
     for (var i = 0; i < objects.length; i++) {
         var id = "id_" + objects[i].id + "";
-        if (dragged.dataset.id != objects[i].id  && !hasClass(document.getElementById(id), "addDashBorder" && loggedIn) && dragged.dataset.parentid != objects[i].id) {
+        if (dragged.dataset.id != objects[i].id  && !hasClass(document.getElementById(id), "addDashBorder" && editData) && dragged.dataset.parentid != objects[i].id) {
             addClass(document.getElementById(id), "addDashBorder");
             drawStuff();
         }
@@ -25,7 +25,7 @@ document.addEventListener("drag", function (event) {
 
 // Event listener for drag start
 document.addEventListener("dragstart", function (event) {
-    if (event.target.dataset.id && event.target.dataset.id != 0 && loggedIn) {
+    if (event.target.dataset.id && event.target.dataset.id != 0 && editData) {
         event.dataTransfer.setData('application/node type', this);
         dragged = event.target;
         addClass(event.target.childNodes[1], "addOpacity");

@@ -1,6 +1,6 @@
 /*
  * Global strSelect
-*/
+ */
 
 // Global variables
 var marginTopOfEveryLevel = 50;
@@ -16,7 +16,7 @@ var str2;
 
 // This function create nods and fill them with data
 function fillData() {
-    if ((strSelect == 1 || strSelect == 2) && loggedIn ) strSelect += 2;
+    if ((strSelect == 1 || strSelect == 2) && editData) strSelect += 2;
     if (objects) {
         var parser = new DOMParser();
         var elem = document.getElementById("js-orgChart");
@@ -47,13 +47,13 @@ function createHierarchy() {
     }
 }
 
+
 // Get Height,width, x and y of every node
 function fillArrayData() {
     if (objects) {
         for (var i = 0; i < objects.length; i++) {
             var elem = document.getElementById('id_' + objects[i].id + '').getBoundingClientRect();
-            if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)))
-            {
+            if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/))) {
                 objects[i].x = elem.left;
                 objects[i].y = elem.top;
                 objects[i].width = elem.width;
@@ -68,33 +68,28 @@ function fillArrayData() {
     }
 }
 
-// Saves changes on server
-function saveChanges(){
-    if (loggedIn){
-        objects.minID = minID;
-        var dataToSave = {
-            objects: objects,
-            minID:minID
-        }
-        data.open("put",'https://my-project-1527861591123.firebaseio.com/objects.json?auth='+idToken,true)
-        data.send(JSON.stringify(dataToSave))
-    }
+
+function cloneObject(obj) {
+    obj = JSON.stringify(obj);
+    tmp = JSON.parse(obj);
 }
+
+
 
 // Load elements from local storge
 function loadData() {
-    data.open("get",'https://my-project-1527861591123.firebaseio.com/objects.json',true)
+    data.open("get", 'http://ca.quantox.tech/chart/data.json', true)
     data.send();
 }
 
 // Load elements on start, check if Boss exist in local storge
 function loadOnStart() {
-    loadData();   
+    loadData();
 }
 
 // Get width of Bosses children
 function setWidthOfOrgChart() {
-    var windowWidth = getWidth() -100;
+    var windowWidth = getWidth() - 100;
     if (objects && document.getElementById("id_0")) {
         var IDs = [];
         var temp;
@@ -132,7 +127,7 @@ function start() {
     loadTheme();
     drawStuff();
     handleNewHash()
-window.addEventListener('hashchange', handleNewHash, false);
+    window.addEventListener('hashchange', handleNewHash, false);
 }
 
 // Add cass
@@ -172,5 +167,5 @@ function hasClass(element, className) {
 // Start on page load
 window.onload = function () {
     start();
-    
+
 };

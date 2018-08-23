@@ -65,6 +65,8 @@ function closeModalSettings() {
 }
 
 function closeLoginModal() {
+    objects = tmp
+    enterData();
     removesClass(document.getElementById("js-body"),"loginModalShown");
     if (alertShown) closeAlert();
 }

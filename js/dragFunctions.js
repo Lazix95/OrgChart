@@ -52,6 +52,7 @@ function filterChilds(elem) {
 
 // Drop node into dropzone
 function dropNode(event, dropFlag) {
+    cloneObject(objects);
     if (event.target.className == "" && null && dragOrNot(event.target)) {
         event.target.style.background = "";
     } else if (event.target.className == "dragHere") {
@@ -92,6 +93,7 @@ function includes(myArray, numb) {
 
 // Switch nods
 function switchPlaces(dragged, target) {
+    cloneObject(objects);
     var k, j;
     var draggedParentID = dragged.dataset.parentid;
     var draggedID = dragged.dataset.id;

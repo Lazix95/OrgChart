@@ -4,6 +4,7 @@
 
 // Sing in new node
 function enterNewPerson() {
+    cloneObject(objects);
     var name = document.getElementById("js-name").value;
     var surname = document.getElementById("js-surname").value;
     var job = document.getElementById("js-job").value;
@@ -41,6 +42,7 @@ function editModalSettings(elem) {
 
 // Save edited settings
 function editPerson() {
+    cloneObject(objects);
     var name = document.getElementById("js-name").value;
     var surname = document.getElementById("js-surname").value;
     var job = document.getElementById("js-job").value;
@@ -93,7 +95,6 @@ function addBoss() {
 var openFile = function (event) {
     var input = event.target;
     var reader = new FileReader();
-    console.log(reader);
     reader.onload = function () {
         TheFileContents = reader.result;
         document.getElementById("js-TheImageContents").innerHTML = '<img id="js-myCustomImage" width="200" src="' + TheFileContents + '" />\n\
@@ -105,6 +106,7 @@ var openFile = function (event) {
 
 // Delete node
 function deletePerson(elem) {
+    cloneObject(objects)
     var deletedId, deletedParentId;
     if (elem.dataset.parentid == "null") {
         return;
