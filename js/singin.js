@@ -1,22 +1,22 @@
 var idToken = null;
 var userId = null;
 var alertShown = false;
-
 var data = new XMLHttpRequest();
+var saveData = new XMLHttpRequest();
 
 // Execute on data response
 data.onload = function () {
     var body = JSON.parse(this.response);
     if (data.status >= 200 && data.status < 400 && body) {
         addClass(document.getElementById("js-loading"), "hideLoading")
-        if (!body.json) {
+        if (!body.json && !objects && editData) {
             objects = null;
-            minId = null;
             removesClass(document.getElementById("js-bossButton"), "buttonHidden");
             return
+        } else if (!body.json) {      // Delete this row at the end, it is jus when we can not save Boss node
+            return
         }
-        objects = body.json.objects;
-        minID = body.json.minID;
+        objects = body.json;
         fillData();
         createHierarchy();
         setWidthOfOrgChart();
@@ -39,16 +39,23 @@ function saveChanges() {
 
 function sendRequest() {
     objects.minID = minID;
-    var dataToSave = {
-        objects: objects,
-        minID: minID
-    }
     var request = {
         username: username,
         password: password,
-        json: dataToSave
+        json: objects
     }
 
-    data.open("post", 'http://ca.quantox.tech/chart/treeadmin.php', true)
-    data.send(JSON.stringify(request))
+    saveData.open("post", 'http://ca.quantox.tech/chart/treeadmin.php', true)
+    var str = JSON.stringify(request);
+    saveData.send(str)
+}
+
+// Load elements from local storge
+function loadData() {
+    data.open("get", 'http://ca.quantox.tech/chart/data.json', true)
+    data.send();
+}
+
+saveData.onload = function () {
+    console.log(this.response)
 }

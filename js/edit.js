@@ -12,6 +12,7 @@ var admin = {
 function handleNewHash() {
     if ((window.location.hash != "#/edit" && window.location.hash != "#/" || window.location.hash == "#/")) {
         window.location.hash = "/"
+        addClass(document.getElementById("js-bossButton"), "buttonHidden");
         LogOut(editData);
         editData = false;
     } else if (window.location.hash == "#/edit" && !editData) {

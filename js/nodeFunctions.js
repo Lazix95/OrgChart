@@ -8,9 +8,8 @@ function enterNewPerson() {
     var name = document.getElementById("js-name").value;
     var surname = document.getElementById("js-surname").value;
     var job = document.getElementById("js-job").value;
-    minID += 1;
     var newPerson = {
-        id: minID,
+        id: createUniqueId(),
         parentID: parentElem.dataset.id,
         "name": name,
         "surname": surname,
@@ -21,6 +20,19 @@ function enterNewPerson() {
     saveChanges();
     enterData();
     closeModal();
+}
+
+function createUniqueId(){
+    var newId = Math.floor(Math.random() * Math.random() * 10000);
+    var isUnique = objects.map( id => id.id).indexOf(newId)
+    if (isUnique >= 0) {
+        newId = createUniqueId();
+        return newId
+    }else{
+        return newId;
+    }
+
+   
 }
 
 // Call modal for edit node

@@ -8,7 +8,6 @@ var sideMargin = 30;
 var heightOfElements = 200;
 var selectedPersonID;
 var selectedPerson;
-var minID = 0;
 var objects = null;
 var strSelect = 1;
 var str;
@@ -74,13 +73,6 @@ function cloneObject(obj) {
     tmp = JSON.parse(obj);
 }
 
-
-
-// Load elements from local storge
-function loadData() {
-    data.open("get", 'http://ca.quantox.tech/chart/data.json', true)
-    data.send();
-}
 
 // Load elements on start, check if Boss exist in local storge
 function loadOnStart() {
