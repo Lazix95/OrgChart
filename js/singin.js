@@ -58,4 +58,5 @@ function loadData() {
 
 saveData.onload = function () {
     console.log(this.response)
+    console.log('​saveData.onload -> ');
 }

@@ -92,7 +92,7 @@ function addBoss() {
         "name": name,
         "surname": surname,
         "job": job,
-        picture: 'img/userPicture.png'
+        picture: document.getElementById("js-myCustomImage").src
     };
     objects = [];
     addBossFlag = false;
